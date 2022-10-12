@@ -1,0 +1,318 @@
+Assignment - 16 A Job Ready Bootcamp in C++, DSA and IOT MySirG
+
+Multi-Dimensional Array in C Language
+
+1. Write a program to calculate the sum of two matrices each of order 3x3.
+2. Write a program to calculate the product of two matrices each of order 3x3.
+3. Write a program in C to find the transpose of a given matrix.
+4. Write a program in C to find the sum of right diagonals of a matrix.
+5. Write a program in C to find the sum of left diagonals of a matrix.
+6. Write a program in C to find the sum of rows and columns of a Matrix.
+7. Write a program in C to print or display the lower triangular of a given matrix.
+8. Write a program in C to print or display an upper triangular matrix.
+9. Write a program in C to accept a matrix and determine whether it is a sparse matrix.
+10. Write a program in C to find the row with maximum number of 1s.
+
+
+Solutions:
+
+Ans-1:  #include<stdio.h>
+
+        int main(){
+        
+            int arr1[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+            int arr2[3][3] = {{4,5,6},{7,8,9},{1,2,3}};
+            int i,j,sum[3][3];
+            // printf("Enter 1st array elements : ");
+            // for(i=0;i<3;i++){
+            //     for(j=0;j<3;j++){
+            //         scanf("%d",&arr1[i][j]);
+            //     }
+            // }
+            // printf("Enter 2nd array elements : ");
+            // for(i=0;i<3;i++){
+            //     for(j=0;j<3;j++){
+            //         scanf("%d",&arr2[i][j]);
+            //     }
+            // }
+            for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                    sum[i][j] = arr1[i][j] + arr2[i][j];
+                }
+            }
+            printf("Sum of the arrays is : \n");
+            for(i=0;i<3;i++){
+                printf("\t\t");
+                for(j=0;j<3;j++){
+                    printf("%3d",sum[i][j]);
+                }
+                printf("\n");
+            }
+        
+            return 0;
+        }
+
+Ans-2:  #include<stdio.h>
+
+        int main(){
+        
+            int arr1[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+            int arr2[3][3] = {{4,5,6},{7,8,9},{1,2,3}};
+            int i,j,product[3][3];
+            // printf("Enter 1st array elements : ");
+            // for(i=0;i<3;i++){
+            //     for(j=0;j<3;j++){
+            //         scanf("%d",&arr1[i][j]);
+            //     }
+            // }
+            // printf("Enter 2nd array elements : ");
+            // for(i=0;i<3;i++){
+            //     for(j=0;j<3;j++){
+            //         scanf("%d",&arr2[i][j]);
+            //     }
+            // }
+            for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                    product[i][j] = (arr1[i][0]*arr2[0][j])+(arr1[i][1]*arr2[1][j])+(arr1[i][2]*arr2[2][j]);
+                }
+            }
+            printf("Product of the arrays is : \n");
+            for(i=0;i<3;i++){
+                printf("\t\t");
+                for(j=0;j<3;j++){
+                    printf("%4d",product[i][j]);
+                }
+                printf("\n");
+            }
+        
+            return 0;
+        }
+
+Ans-3:  #include<stdio.h>
+
+        int main(){
+        
+            int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+            int i,j,transpose[3][3];
+            // printf("Enter the array elements : ");
+            // for(i=0;i<3;i++){
+            //     for(j=0;j<3;j++){
+            //         scanf("%d",&arr[i][j]);
+            //     }
+            // }
+            for(i=0;i<3;i++){
+                for(j=0;j<3;j++){
+                    transpose[i][j] = arr[j][i];
+                }
+            }
+            printf("Transpose of the array is : \n");
+            for(i=0;i<3;i++){
+                printf("\t\t");
+                for(j=0;j<3;j++){
+                    printf("%4d",transpose[i][j]);
+                }
+                printf("\n");
+            }
+        
+            return 0;
+        }
+
+Ans-4:  #include<stdio.h>
+
+        int main(){
+        
+            int row;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            int arr[row][row];
+            int i,j,sum=0;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    scanf("%d",&arr[i][j]);
+                }
+            }
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    if(j==row-i-1){
+                        sum = sum + arr[i][j];
+                    }
+                }
+            }
+            printf("Sum of right diagonal elements of the matrix is : %d\n",sum);
+        
+            return 0;
+        }
+
+Ans-5:  #include<stdio.h>
+
+        int main(){
+        
+            int row;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            int arr[row][row];
+            int i,j,sum=0;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    scanf("%d",&arr[i][j]);
+                }
+            }
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    if(j==i){
+                        sum = sum + arr[i][j];
+                    }
+                }
+            }
+            printf("Sum of left diagonal elements of the matrix is : %d\n",sum);
+        
+            return 0;
+        }
+
+Ans-6:  #include<stdio.h>
+
+        int main(){
+        
+            int row,column;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            printf("Enter number of columns: ");
+            scanf("%d",&column);
+            
+            printf("Sum of rows and columns of the matrix is : %d\n",row+column);
+        
+            return 0;
+        }
+
+Ans-7:  #include<stdio.h>
+
+        int main(){
+        
+            int row;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            int arr[row][row];
+            int i,j;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    scanf("%d",&arr[i][j]);
+                }
+            }
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    if(j<=i){
+                        printf("%3d",arr[i][j]);
+                    }
+                    else{
+                        printf("%3d",0);
+                    }
+                }
+                printf("\n");
+            }            
+        
+            return 0;
+        }
+
+Ans-8:  #include<stdio.h>
+
+        int main(){
+        
+            int row;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            int arr[row][row];
+            int i,j;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    scanf("%d",&arr[i][j]);
+                }
+            }
+            for(i=0;i<row;i++){
+                for(j=0;j<row;j++){
+                    if(j>=i){
+                        printf("%3d",arr[i][j]);
+                    }
+                    else{
+                        printf("%3d",0);
+                    }
+                }
+                printf("\n");
+            }            
+        
+            return 0;
+        }
+
+Ans-9:  #include<stdio.h>
+
+        int main(){
+        
+            int row,column;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            printf("Enter number of columns: ");
+            scanf("%d",&column);
+            int arr[row][column];
+            int i,j,zeros=0;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<column;j++){
+                    scanf("%d",&arr[i][j]);
+                    if(arr[i][j]==0){
+                        zeros++;
+                    }
+                }
+            }
+            if(zeros>(row*column)/2){
+                printf("It is a sparse matrix\n");
+            }      
+            else{
+                printf("Not a sparse matrix\n");
+            }
+        
+            return 0;
+        }
+
+Ans-10: #include<stdio.h>
+
+        int main(){
+        
+            int row,column;
+            printf("Enter number of rows: ");
+            scanf("%d",&row);
+            printf("Enter number of columns: ");
+            scanf("%d",&column);
+            int arr[row][column];
+            int i,j,r0=0,r1,r=0;
+            printf("Enter the matrix elements: \n");
+            for(i=0;i<row;i++){
+                for(j=0;j<column;j++){
+                    scanf("%d",&arr[i][j]);
+                }
+            }
+            for(i=0;i<row;i++){
+                r1=0;
+                for(j=0;j<column;j++){
+                    if(i==0){
+                        if(arr[i][j]==1){
+                            r0++;
+                        }
+                    }
+                    else{
+                        if(arr[i][j]==1){
+                            r1++;
+                        }
+                    }
+                }
+                if(r0<r1){
+                    r0 = r1;
+                    r = i;
+                }
+            }
+            printf("Row with highest number of 1s is : %d\n",r+1);
+        
+            return 0;
+        }
